@@ -6,7 +6,7 @@ namespace Meals\Application\Feature\Poll\UseCase\EmployeeGetsActivePolls;
 
 use Meals\Application\Component\Provider\PollProviderInterface;
 use Meals\Application\Component\Provider\EmployeeProviderInterface;
-use Meals\Application\Component\Validator\UserHasAccessToViewPollsValidator;
+use Meals\Application\Component\Validator\User\HasAccessToViewPollsValidator;
 use Meals\Domain\Poll\PollList;
 
 class Interactor
@@ -14,7 +14,7 @@ class Interactor
     public function __construct(
         private EmployeeProviderInterface $employeeProvider,
         private PollProviderInterface $pollProvider,
-        private UserHasAccessToViewPollsValidator $userHasAccessToPollsValidator
+        private HasAccessToViewPollsValidator $userHasAccessToPollsValidator
     ) {}
 
     public function getActivePolls(int $employeeId): PollList
